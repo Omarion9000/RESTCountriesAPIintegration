@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+</head>
+<body>
+<h2>Library Management System</h2>
+<p id="demo"></p>
+<script>
+    let dataset = '{"books": [ ' +
+        '{"title":"Clean Code","author":{"name":"Robert C. Martin","birthyear":"1952"},"publicationyear":"2008","category":"Technology"},' +
+        '{"title":"The Pragmatic Programmer","author":{"name":"Andrew Hunt","birthyear":"1964"},"publicationyear":"1999","category":"Technology"},' +
+        '{"title":"Introduction to Algorithms","author":{"name":"Thomas H. Cormen","birthyear":"1956"},"publicationyear":"1990","category":"Technology"},' +
+        '{"title":"Design Patterns","author":{"name":"Erich Gamma","birthyear":"1961"},"publicationyear":"1994","category":"Technology"}]}';
+
+    const obj = JSON.parse(dataset);
+    let data = "";
+
+    for (let i = 0; i < obj.books.length; i++) {
+        data += "<strong>Title:</strong> " + obj.books[i].title + "<br>";
+        data += "<strong>Author Name:</strong> " + obj.books[i].author.name + "<br>";
+        data += "<strong>Author Birth Year:</strong> " + obj.books[i].author.birthyear + "<br>";
+        data += "<strong>Publication Year:</strong> " + obj.books[i].publicationyear + "<br>";
+        data += "<strong>Category:</strong> " + obj.books[i].category + "<br><br>";
+    }
+
+    document.getElementById("demo").innerHTML = data;
+</script>
+</body>
+</html>
